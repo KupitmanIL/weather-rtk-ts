@@ -1,7 +1,12 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-    weatherInfo: {}
+    weatherInfo: {
+        country: "",
+        city: "",
+        temp: 0,
+        pressure: 0,
+        sunset: 0}
 };
 
 const weatherInfoSlice = createSlice({

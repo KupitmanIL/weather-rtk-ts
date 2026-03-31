@@ -1,8 +1,9 @@
 import {api_key, base_url} from "../../utils/constants.ts";
 import {setWeather} from "./weatherInfoSlice.ts";
 import {setMessage} from "../message/messageSlice.ts";
+import type {AppDispatch} from "../../app/store.ts";
 
-export const fetchWeather = (city:string) => (dispatch) => {
+export const fetchWeather = (city:string) => (dispatch: AppDispatch) => {
     fetch(`${base_url}?q=${city}&appid=${api_key}&units=metric`)
         .then((res) => res.json())
         .then((data) => {
