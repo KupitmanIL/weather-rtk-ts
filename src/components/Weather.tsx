@@ -1,8 +1,8 @@
-import {useSelector} from "react-redux";
 import {useAppSelector} from "../app/hooks.ts";
 
+
 const Weather = () => {
-    const weather = useAppSelector(state => state.weather);
+    const weather  = useAppSelector(state => state.weather);
     const message = useAppSelector(state => state.message);
 
     if (message) {

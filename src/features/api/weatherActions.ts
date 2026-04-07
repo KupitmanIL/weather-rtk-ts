@@ -1,8 +1,17 @@
 import {api_key, base_url} from "../../utils/constants.ts";
-import {setWeather} from "../weather/weatherSlice.ts";
+import {setWeather, type WeatherState} from "../weather/weatherSlice.ts";
 import {setMessage} from "../message/messageSlice.ts";
+import type {AppDispatch} from "../../app/store.ts";
 
-export const fetchWeather = city => async (dispatch) => {
+const emptyWeather: WeatherState = {
+    country: "",
+    city: "",
+    temp: 0,
+    pressure: 0,
+    sunset: 0
+};
+
+export const fetchWeather = (city : string) => async (dispatch: AppDispatch) => {
     try {
         const res = await fetch(`${base_url}?q=${city}&appid=${api_key}&units=metric`);
         const data = await res.json();
@@ -17,6 +26,6 @@ export const fetchWeather = city => async (dispatch) => {
     } catch (e) {
         console.log(e)
         dispatch(setMessage('Enter correct city name'));
-        dispatch(setWeather({}));
+        dispatch(setWeather(emptyWeather));
     }
 }
