@@ -4,7 +4,7 @@ const messageSlice = createSlice({
     name: 'message',
     initialState: 'Enter city name',
     reducers: {
-        setMessage: (state, action) => action.payload
+        setMessage: (_state, action) => action.payload
     }
 })
 

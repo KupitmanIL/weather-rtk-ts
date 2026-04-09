@@ -1,10 +1,11 @@
 import {createSlice} from "@reduxjs/toolkit";
+import type {WeatherInfo} from "../../utils/types";
 
 const weatherSlice = createSlice({
     name: 'weather',
-    initialState: {},
+    initialState: {} as WeatherInfo,
     reducers: {
-        setWeather: (state, action) => action.payload
+        setWeather: (_state, action) => action.payload
     }
 })
 
